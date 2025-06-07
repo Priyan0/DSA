@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,10 +20,26 @@ public static boolean hasDuplicate(int[] nums){
     return state;
 }
 
+public static boolean isAnagram(String s, String t) {
+    boolean state = false;
+    char[] firstCharArr = s.toCharArray();
+    char[] secCharArr = t.toCharArray();
+    Arrays.sort(firstCharArr);
+    Arrays.sort(secCharArr);
+    String a = new String(firstCharArr);
+    String b = new String(secCharArr);
+    if (a.equalsIgnoreCase(b)){
+        state = true;
+    }else{
+        state = false;
+    }
+    return state;
+    }
+
 
     public static void main(String[] args) {
         int[] nums = {1, 2, 3, 4 , 5, 5, 5};   
         System.out.println(hasDuplicate(nums));
-
+        System.out.println(isAnagram("racecar","carrace"));
         }
 }
